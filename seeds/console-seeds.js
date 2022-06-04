@@ -18,6 +18,9 @@ const consoleData = [
     }, 
     {
         console_name: 'Nintendo Wii'
+    }, 
+    {
+        console_name: 'PS2'
     }
     
 ];
