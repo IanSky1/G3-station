@@ -24,6 +24,6 @@ const consoleData = [
     }
     
 ];
- const consoleCategories = () => Console.bulkCreate(consoleData);
+ const seedConsole = () => Console.bulkCreate(consoleData);
 
- module.exports = consoleCategories
+ module.exports = seedConsole

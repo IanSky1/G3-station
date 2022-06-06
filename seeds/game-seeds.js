@@ -3,27 +3,47 @@ const { Games } = require('../models');
 const gameData = [
     {
         game_name: '', 
+        game_genre: '', 
+        game_console: ''
     }, 
     {
-        game_name: ''
+        game_name: '',
+        game_genre:'', 
+        game_console:''
     }, 
     {
-        game_name: ''
+        game_name: '', 
+        game_genre:'', 
+        game_console:''
     }, 
     {
-        game_name: ''
+        game_name: '', 
+        game_genre:'', 
+        game_console: ''
     }, 
     {
-        game_name: ''
+        game_name: '', 
+        game_genre:'', 
+        game_console: ''
     }, 
     {
-        game_name: ''
+        game_name: '', 
+        game_genre:'', 
+        game_console: ''
     }, 
     {
-        game_name: ''
+        game_name: '', 
+        game_genre:'', 
+        game_console: ''
+    }, 
+    {
+        game_name:'', 
+        game_genre:'', 
+        game_console:''
+    
     }
     
 ];
- const gameCategories = () => Console.bulkCreate(gameData);
+ const seedGame = () => Console.bulkCreate(gameData);
 
- module.exports = gameCategories
+ module.exports = seedGame
