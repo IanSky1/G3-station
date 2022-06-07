@@ -21,9 +21,12 @@ const consoleData = [
     }, 
     {
         console_name: 'PS2'
+    }, 
+    {
+        console_name: 'PC'
     }
     
 ];
- const consoleCategories = () => Console.bulkCreate(consoleData);
+ const seedConsole = () => Console.bulkCreate(consoleData);
 
- module.exports = consoleCategories
+ module.exports = seedConsole
