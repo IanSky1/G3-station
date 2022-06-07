@@ -2,12 +2,13 @@ const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const path = require('path');
+require('dotenv').config();
 
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 const sequelize = require('./config/connection');
 const sequelizeStore = require('connect-session-sequelize')(session.Store);
-require('dotenv').config();
+
 
 const hbs = exphbs.create({ helpers });
 
@@ -16,7 +17,7 @@ const PORT = process.env.PORT || 3001;
 
 
 const sess = {
-    secret: process.env.g3_station_db,
+    secret: process.env.SESSION_SECRET,
     cookie: {},
     resave: false,
     saveUninitialized: true,

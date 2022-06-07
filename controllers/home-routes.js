@@ -8,13 +8,13 @@ router.get('/', (req, res) => {
 // --------------
 // I need to make some changes to lines 11-17 before we test this route
 
-//router.get('/signup', (req, res) => {
- //   if(req.session.loggedIn) {
- //       res.redirect('/');
- //       return;
- //   }
- // res.render("signup")
-// });
+router.get('/signup', (req, res) => {
+  if(req.session.loggedIn) {
+    res.redirect('/');
+    return;
+ }
+ res.render("signup")
+});
 //-----------------
 
 // Just the initial setup for when we create the code for the login/user-data
