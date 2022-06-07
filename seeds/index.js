@@ -1,8 +1,6 @@
 const seedConsole = require('./console-seeds');
 const seedGenre = require('./genre-seeds');
 const seedGame = require('./game-seeds');
-const seedMultiplayer = require('./multiplayer-seeds');
-const seedSingleplayer = require('./singleplayer-seeds');
 
 const sequelize = require('../config/connection');
 
@@ -18,12 +16,7 @@ const seedAll = async () => {
   await seedGame();
   console.log('\n----- GAME SEEDED -----\n');
 
-  await seedMultiplayer();
-  console.log('\n----- MULTIPLAYER SEEDED -----\n');
-
-  await seedSingleplayer();
-  console.log('\n----- SINGLEPLAYER SEEDED -----\n');
-
+  
 
   process.exit(0);
 };
