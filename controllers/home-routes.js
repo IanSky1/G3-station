@@ -6,7 +6,8 @@ router.get('/', (req, res) => {
     res.render('homepage');
 });
 // --------------
-// I need to make some changes to lines 10-15 before we test this route
+// I need to make some changes to lines 11-17 before we test this route
+
 //router.get('/signup', (req, res) => {
  //   if(req.session.loggedIn) {
  //       res.redirect('/');
