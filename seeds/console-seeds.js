@@ -21,6 +21,9 @@ const consoleData = [
     }, 
     {
         console_name: 'PS2'
+    }, 
+    {
+        console_name: 'PC'
     }
     
 ];
