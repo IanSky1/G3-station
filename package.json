@@ -8,12 +8,9 @@
     "start": "node server.js",
     "seeds": "node seeds/index.js"
   },
-
   "keywords": [],
   "author": "",
   "license": "ISC",
-
-
   "dependencies": {
     "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.1.4",
