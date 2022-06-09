@@ -2,31 +2,36 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Console, Game, Genre} = require("../models");
 
-router.get('/', (req, res) => {
-    res.render('homepage');
-});
-// --------------
-// I need to make some changes to lines 11-17 before we test this route
-
-router.get('/signup', (req, res) => {
-  if(req.session.loggedIn) {
-    res.redirect('/');
+router.get('/homepage', (req, res) => {
+    if (!req.user) {
+    res.redirect('/homepage');
     return;
- }
- res.render("signup")
-});
-//-----------------
+    }
+    });
+    
 
-// Just the initial setup for when we create the code for the login/user-data
+// ROUTER LOGIN
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
-        res.redirect('/');
+        res.redirect('/homepage');
         return;
     }
     res.render('login');
 });
 
-module.exports = router;
 
+// ROUTER SIGN-UP
+router.get('/signup', (req, res) => {
+  if(req.session.loggedIn) {
+    res.redirect('/homepage');
+    return;
+ }
+ res.render("signup")
+});
+
+
+
+
+module.exports = router;
 
 
