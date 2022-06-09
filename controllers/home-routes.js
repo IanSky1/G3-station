@@ -26,6 +26,15 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
+
+router.get('/Game', (req, res) => {
+    if (req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
+    res.render('Game');
+});
+
 //const options = {
 	//method: 'GET',
 	//headers: {
