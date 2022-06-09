@@ -4,22 +4,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>G3-station</title>
+    <title>GAM3STATION</title>
     <link rel="stylesheet" href="/G3-station/stylesheets/style.css">
 </head>
 
 <body>
-    <div class="wrapper">
-        <header>
-            <h1>
-                <a href="/">home</a>
-            </h1>
-            <nav>
+    <div class="flex-column justify-space-around">
+
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid navBack">
+          <a class="navbar-brand navTitle" href="/"></a>
+          <button
+            type="button"
+            class="navbar-toggler"
+            aria-label="Toggle navigation"
+            data-bs-target="#navbarSupportedContent"
+            data-bs-toggle="collapse"
+            aria-expanded="false"
+            aria-controls="navbarSupportedContent">
+            
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-4 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
                 {{#if loggedIn}}
-                <a href="/dashboard">dashboard</a>
-                <button id="logout" class="btn-no-style logout">logout</button>
+                <li class="nav-item">
+                  <button class="no-button" id="logout">Logout</button>
+                </li>
+                   <li class="nav-item">
+                  <a class="nav-link" href="/dashboard">Dashboard</a>
+                </li>
+
                 {{else}}
-                <a href="/login">login</a>
+                <li class="nav-item">
+                  <a class="nav-link" href="/signUp">Sign Up</a>
+                </li>
+
+                <li>
+                  <a class="nav-link" href="/login">Login</a>
+                </li>
                 {{/if}}
             </nav>
         </header>
@@ -31,6 +57,9 @@
         <main>
             {{{ body }}}
         </main>
+         <footer>
+      We love videogames!
+    </footer>
     </div>
 
     {{#if loggedIn}}
