@@ -1,6 +1,5 @@
-const Console = require('./Console');
 const Game = require('./Game');
-const Genre = require('./Genre');
+const User = require('./User');
 
 
 
@@ -9,7 +8,6 @@ const Genre = require('./Genre');
 
 
 module.exports = {
-    Console,
-    Game,
-    Genre
+    Game
+    
   };

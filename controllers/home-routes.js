@@ -26,6 +26,20 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
+//const options = {
+	//method: 'GET',
+	//headers: {
+		//'X-RapidAPI-Key': '39aa117937msh60256623d8df0bdp13ba74jsnbfcad703174f',
+		//'X-RapidAPI-Host': 'rawg-video-games-database.p.rapidapi.com'
+	//}
+//};
+
+//fetch('https://rawg-video-games-database.p.rapidapi.com/games', options)
+	//.then(response => response.json())
+	//.then(response => console.log(response))
+	//.catch(err => console.error(err));
+
+
 module.exports = router;
 
 
