@@ -1,5 +1,5 @@
 const User = require('./User');
-const Game = require('./Game');
+// const Game = require('./Game');
 const Post = require('./Post');
 const Comment = require('./Comment');
 
@@ -36,5 +36,5 @@ module.exports = {
     User,
     Post,
     Comment,
-    Game
+    
   };
