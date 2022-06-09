@@ -1,7 +1,7 @@
 const seedUsers = require('./user-seeds');
 const seedPosts = require('./post-seeds');
 const seedComments = require('./comment-seeds');
-const seedGame = require('./game-seeds');
+//const seedGame = require('./game-seeds');
 
 const sequelize = require('../config/connection');
 
@@ -18,8 +18,8 @@ const seedAll = async () => {
   await seedComments();
   console.log('\n----- COMMENTS SEEDED -----\n');
 
-  await seedGame();
-  console.log('\n----- GAME SEEDED -----\n');
+  // await seedGame();
+  // console.log('\n----- GAME SEEDED -----\n');
 
   
   process.exit(0);

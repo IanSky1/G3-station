@@ -2,23 +2,23 @@
 
 
 
-function gameSearch(e) {
-    var gameSearch = document.querySelector("#game-search");
-    var getApi = "https://rawg-video-games-database.p.rapidapi.com/games" + gameSearch.value + "&aqi=no";
-    fetch(getApi).then((response) => {
-        return response.json()
-    }).then((data) => {
-        document.querySelector("").textContent = data.
-        document.querySelector("").textContent = data.
-        document.querySelector("").textContent = data.current.condition.text
-        var gameImg = 'http:' + data.current.condition.icon 
-        document.querySelector("").src = gameImg;
-        document.querySelector("").textContent = data.
-    })
+// function gameSearch(e) {
+//     var gameSearch = document.querySelector("#game-search");
+//     var getApi = "https://rawg-video-games-database.p.rapidapi.com/games" + gameSearch.value + "&aqi=no";
+//     fetch(getApi).then((response) => {
+//         return response.json()
+//     }).then((data) => {
+//         document.querySelector("").textContent = data.
+//         document.querySelector("").textContent = data.
+//         document.querySelector("").textContent = data.current.condition.text
+//         var gameImg = 'http:' + data.current.condition.icon 
+//         document.querySelector("").src = gameImg;
+//         document.querySelector("").textContent = data.
+//     })
 
 
 
-}; 
+// }; 
 
 
 
