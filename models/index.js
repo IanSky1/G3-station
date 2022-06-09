@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 const User = require('./User');
 // const Game = require('./Game');
 const Post = require('./Post');
 const Comment = require('./Comment');
+=======
+const Game = require('./Game');
+const User = require('./User');
+>>>>>>> blur
 
 User.hasMany(Post, {
   foreignKey: 'user_id',
@@ -33,8 +38,12 @@ module.exports = { User, Post, Comment, Game };
 
 
 module.exports = {
+<<<<<<< HEAD
     User,
     Post,
     Comment,
+=======
+    Game
+>>>>>>> blur
     
   };
