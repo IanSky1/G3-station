@@ -55,13 +55,13 @@ router.get('/login', (req, res) => {
 });
 
 
-router.get('/Game', (req, res) => {
-    if (req.session.loggedIn) {
-        res.redirect('/');
-        return;
-    }
-    res.render('Game');
-});
+//router.get('/Game', (req, res) => {
+    //if (req.session.loggedIn) {
+        //res.redirect('/');
+        //return;
+   // }
+    //res.render('Game');
+//});
 
 //const options = {
 	//method: 'GET',
