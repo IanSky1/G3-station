@@ -11,7 +11,7 @@ async function commentFormHandler(event) {
         const response = await fetch('/api/comment-routes', {
             method: 'post',
             body: JSON.stringify({
-                post_id,
+                postID,
                 comment_text
             }),
             headers: {

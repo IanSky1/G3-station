@@ -12,7 +12,7 @@ const editFormHandler = async (event) => {
     console.log(postTitle);
     console.log(postContent);
   
-    const response = await fetch(`/api/post/${postId}`, {
+    const response = await fetch(`/api/post/${postID}`, {
       method: 'put',
       body: JSON.stringify({
         postTitle,
@@ -27,7 +27,7 @@ const editFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {
-      alert('Failed to update your post');
+      alert('Failed to update post');
     }
     document.location.replace('/dashboard');
   };
