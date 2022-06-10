@@ -22,7 +22,7 @@
             data-bs-toggle="collapse"
             aria-expanded="false"
             aria-controls="navbarSupportedContent">
-            
+
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -35,16 +35,16 @@
                   <button class="no-button" id="logout">Logout</button>
                 </li>
                    <li class="nav-item">
-                  <a class="nav-link" href="/dashboard">Dashboard</a>
+                  <a class="nav-link" href="/G3-station/public/javascript/dashboard.js">Dashboard</a>
                 </li>
 
                 {{else}}
                 <li class="nav-item">
-                  <a class="nav-link" href="/signUp">Sign Up</a>
+                  <a class="nav-link" href="/G3-station/public/javascript/signup.js">Sign Up</a>
                 </li>
 
                 <li>
-                  <a class="nav-link" href="/login">Login</a>
+                  <a class="nav-link" href="/G3-station/public/javascript/login.js">Login</a>
                 </li>
                 {{/if}}
             </nav>
@@ -63,7 +63,7 @@
     </div>
 
     {{#if loggedIn}}
-    <script src="/javascript/logout.js"></script>
+    <script src="/G3-station/public/javascript/login.js"></script>
     {{/if}}
 </body>
 

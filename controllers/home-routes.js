@@ -1,124 +1,98 @@
 const router = require('express').Router();
-const sequelize = require('../config/connection');
-const { Post, User, Comment } = require("../models");
+const { User, Post, Comment } = require('../models');
+const withAuth = require('../utils/auth');
 
-router.get('/', (req, res) => {
-    Post.findAll({
-        attributes: [
-            'id',
-            'post_text',
-            'title',
-            'created_at',
-        ],
-        order: [[ "created_at", "DESC"]],
+router.get('/', async (req, res) => {
+	try {
+		const postData = await post.findAll({
+			include: [{
+				model: User,
+				attributes: ['username'],
+			},],
+		});
 
-        include: [
-            {
-                model: Comment,
-                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-                include: {
-                    model: User,
-                    attributes: ['username'],
-                },
-            },
+		const post = postData.map((post) => post.get({
+			plain: true
+		}));
 
-            {
-                model: User,
-                attributes: ['username'],
-            },
-        ],
-    })
+		res.render('homepage', {
+			posts,
+			logged_in: req.session.logged_in
+		});
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
 
-    .then(dbPostData => {
-        const posts = dbPostData.map(post => post.get({ plain: true }));
-        res.render('homepage', {
-            posts,
-            logged_in: req.session.logged_in,
-            username: req.session.username,
-        });
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+router.get('/post/:id', async (req, res) => {
+	try {
+		const postData = await post.findByPk(req.params.id, {
+			include: [
+				{
+					model: User,
+					attributes: ['username'],
+				}, {
+					model: Comment,
+					include: [
+						User
+					]
+				}
+			],
+		});
 
-    });
-    
+		const post = postData.get({
+			plain: true
+		});
 
-// ROUTER LOGIN
+		res.render('post', {
+			...post,
+			logged_in: req.session.logged_in
+		});
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
+
+router.get('/dashboard', withAuth, async (req, res) => {
+	try {
+		const userData = await User.findByPk(req.session.user_id, {
+			attributes: {
+				exclude: ['password']
+			},
+			include: [{
+				model: Post
+			}],
+		});
+
+		const user = userData.get({
+			plain: true
+		});
+
+		res.render('dashboard', {
+			...user,
+			logged_in: true
+		});
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
+
 router.get('/login', (req, res) => {
-    if (req.session.loggedIn) {
-        res.redirect('/homepage');
-        return;
-    }
-    res.render('login');
+	if (req.session.logged_in) {
+		res.redirect('/dashboard');
+		return;
+	}
+
+	res.render('login');
 });
 
-
-// ROUTER SIGN-UP
-router.get('/signup', (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('/homepage');
-    return;
- }
- res.render("signup");
+router.get('/signUp', (req, res) => {
+	if (req.session.logged_in) {
+		res.redirect('/dashboard');
+		return;
+	}
+	res.render('signUp');
 });
-
-router.get('/post/:id', (req, res) => {
-    Post.findOne({
-      where: {
-        id: req.params.id,
-      },
-      attributes: ['id', 'post_text', 'title', 'created_at'],
-      include: [
-        {
-            model: Comment,
-            attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-            include: {
-              model: User,
-              attributes: ['username'],
-            },
-        },
-
-        {
-            model: User,
-            attributes: ["username"],
-        },
-      ],
-    })
-
-    .then(dbPostData => {
-        if (!dbPostData) {
-            res.status(404).json({ message: 'A post with this id has not been found'});
-            return;
-        }
-
-        const post = dbPostData.get({ plain: true });
-
-        res.render("single-post", {
-            post,
-            loggedIn: req.session.loggedIn
-        });
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
-
-});
-//const options = {
-	//method: 'GET',
-	//headers: {
-		//'X-RapidAPI-Key': '39aa117937msh60256623d8df0bdp13ba74jsnbfcad703174f',
-		//'X-RapidAPI-Host': 'rawg-video-games-database.p.rapidapi.com'
-	//}
-//};
-
-//fetch('https://rawg-video-games-database.p.rapidapi.com/games', options)
-	//.then(response => response.json())
-	//.then(response => console.log(response))
-	//.catch(err => console.error(err));
-
 
 module.exports = router;
 
