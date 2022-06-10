@@ -1,6 +1,6 @@
 const { Post } = require('../models');
 
-const postData = [
+const postdata = [
     {
         title: "Welcome to G3_Station!",
         post_text: "We hope you find what you are looking for!",
@@ -38,6 +38,6 @@ const postData = [
     },
 ];
 
-const seedPosts = () => Post.bulkCreate(postData);
+const seedPosts = () => Post.bulkCreate(postdata);
 
 module.exports = seedPosts;
