@@ -9,7 +9,7 @@ async function commentFormHandler(event) {
 
     if (comment_text) {
         const response = await fetch('/api/comment-routes', {
-            method: 'POST',
+            method: 'post',
             body: JSON.stringify({
                 post_id,
                 comment_text
@@ -29,4 +29,5 @@ async function commentFormHandler(event) {
     }
 }
 
-document.querySelector('.comment-form').addEventListener('submit', commentFormHandler);
+document.querySelector('.comment-form')
+document.addEventListener('submit', commentFormHandler);

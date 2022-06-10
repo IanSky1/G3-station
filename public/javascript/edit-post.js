@@ -13,7 +13,7 @@ const editFormHandler = async (event) => {
     console.log(postContent);
   
     const response = await fetch(`/api/post/${postId}`, {
-      method: 'PUT',
+      method: 'put',
       body: JSON.stringify({
         postTitle,
         postContent,
@@ -34,7 +34,7 @@ const editFormHandler = async (event) => {
   
   const deleteClickHandler = async () => {
     await fetch(`/api/post/${postID}`, {
-      method: 'DELETE'
+      method: 'delete'
     });
   
     document.location.replace('/dashboard');
