@@ -1,4 +1,4 @@
-const Game = require('./Game');
+
 const User = require('./User');
 
 User.hasMany(Post, {
