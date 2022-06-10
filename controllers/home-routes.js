@@ -1,26 +1,54 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-// Const { Console, Game, Genre } = require("../models"); May want to change the names of these?
+const { Post, User, Comment, Game } = require("../models");
 
 router.get('/', (req, res) => {
-    res.render('homepage');
-});
-// --------------
-// I need to make some changes to lines 11-17 before we test this route
+    Post.findAll({
+        attributes: [
+            'id',
+            'post_text',
+            'title',
+            'created_at',
+        ],
+        order: [[ "created_at", "DESC"]],
 
-router.get('/signup', (req, res) => {
-  if(req.session.loggedIn) {
-    res.redirect('/');
-    return;
- }
- res.render("signup")
-});
-//-----------------
+        include: [
+            {
+                model: Comment,
+                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                include: {
+                    model: User,
+                    attributes: ['username'],
+                },
+            },
 
-// Just the initial setup for when we create the code for the login/user-data
+            {
+                model: User,
+                attributes: ['username'],
+            },
+        ],
+    })
+
+    .then(dbPostData => {
+        const posts = dbPostData.map(post => post.get({ plain: true }));
+        res.render('homepage', {
+            posts,
+            logged_in: req.session.logged_in,
+            username: req.session.username,
+        });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+
+    });
+    
+
+// ROUTER LOGIN
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
-        res.redirect('/');
+        res.redirect('/homepage');
         return;
     }
     res.render('login');
@@ -50,6 +78,5 @@ router.get('/Game', (req, res) => {
 
 
 module.exports = router;
-
 
 
