@@ -1,24 +1,27 @@
-async function upvoteClickHandler(event) {
-    event.preventDefault();
-  
-    const id = window.location.toString().split('/')[
-      window.location.toString().split('/').length - 1
-    ];
-    const response = await fetch('/api/posts/upvote', {
-      method: 'PUT',
+async function signupFormHandler(event) {
+  event.preventDefault();
+
+  const username = document.querySelector("#username-signup").value.trim();
+  const email = document.querySelector("#email-signup").value.trim();
+  const password = document.querySelector("#password-signup").value.trim();
+
+  if (username && email && password) {
+    const response = await fetch("/api/users", {
+      method: "post",
       body: JSON.stringify({
-        post_id: id
+        username,
+        email,
+        password,
       }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
+      headers: { "Content-Type": "application/json" },
     });
-  
+
     if (response.ok) {
-      document.location.reload();
+      document.location.replace('/dashboard')
     } else {
       alert(response.statusText);
     }
   }
-  
-  document.querySelector('.upvote-btn').addEventListener('click', upvoteClickHandler);
+}
+
+document.querySelector(".signup-form").addEventListener("submit", signupFormHandler);

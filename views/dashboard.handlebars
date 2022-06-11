@@ -1,18 +1,30 @@
-<section class="new-post-section">
-    <button type="submit" class="btn" id="create-new-post">+ Create new post</button>
+<section>
+  <h2>Add your favorite games!</h2>
+
+  <form class="new-post-form">
+    <div>
+      <label for="post-title">Title</label>
+      <input type="text" id="post-title" name="post-title" />
+    </div>
+    <div>
+      <label for="post-url">Link</label>
+      <input id="post-url" name="post-url" />
+    </div>
+    <button type="submit" class="btn">Create</button>
+  </form>
 </section>
 
 {{#if posts.length}}
 <section>
-    <h2>Your Dashboard</h2>
-    <ul class="post-list">
-        {{#each posts as |post|}}
-        <li>
-            {{> post-info post}}
-            <a href="/dashboard/edit/{{post.id}}" class="edit-link">edit post</a>
-        </li>
-        {{/each}}
-    </ul>
+  <h2>Your Posts</h2>
+  <ol>
+    {{#each posts as |post|}}
+    <li>
+      {{> post-info post}}
+      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+    </li>
+    {{/each}}
+  </ol>
 </section>
 {{/if}}
 

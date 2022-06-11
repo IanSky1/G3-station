@@ -8,32 +8,32 @@ const commentdata = [
     },
 
     {
-        comment_text: "Vancouver, Canada is nice in the Summer!",
+        comment_text: "We love Diablo 2",
         post_id: 1,
         user_id: 2
 
     },
 
     {
-        comment_text: "Baku would be nice!",
+        comment_text: "We reccomend Warcraft",
         post_id: 3,
         user_id: 3
     },
 
     {
-        comment_text: "Kiev is nice! They had a great night-life in 2016!",
+        comment_text: "Especially World of Warcraft",
         post_id: 5,
         user_id: 4
     },
 
     {
-        comment_text: "Peru would be nice in the Winter!",
+        comment_text: "I only play PC games",
         post_id: 4,
         user_id: 5
     },
 
     {
-        comment_text: "The south island of New Zealand is amazing!",
+        comment_text: "There are also games on Tor!",
         post_id: 6,
         user_id: 6
     }
