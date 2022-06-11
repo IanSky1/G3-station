@@ -1,111 +1,177 @@
-
-body {
-
-  background-image: url("https://videohive.net/item/retro-80s-video-game-background-4k-looped/28387442");
-
-  background-color: rgb(74, 79, 122);
+* {
+  box-sizing: border-box;
 }
 
-
-.postBox {
-  margin-top: 8px;
-  border-style: solid;
-}
-.navTitle {
-  font-weight: 900;
-  font-size: xx-large;
-}
-.postDesc {
-  border-style: solid;
-  margin-bottom: 5px;
-  padding: 2px;
-  background-color: rgb(113, 143, 62);
+body, html {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  color: rgb(184, 88, 88);
 }
 
-.postTitle {
+a {
   text-decoration: none;
-  color: darkkhaki;
-}
-
-.postDescTwo {
-  font-size: 25px;
-  font-style: italic;
-}
-
-.postDescMain {
-  font-weight: 700;
-}
-
-
-.postBoxCont {
-  margin-top: 10px;
-  border-style: solid;
-  background-color: rgb(113, 143, 62);
-}
-
-.formCont {
-  margin-top: 10px;
-  max-width: 75%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.postCreate {
+  color: #10141a;
   font-weight: bold;
-  font-style: italic;
-  font-size: 15px;
-  padding: 5px;
-  color: darkkhaki;
-}
-
-.commentOwner {
-  font-size: 14px;
-}
-
-.commentCont {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10px;
-  max-width: 75%;
-  background-color: rgb(89, 97, 142);
-}
-
-.commentText {
-  font-weight: bold;
-  padding-top: 10px;
-  background-color: rgb(84, 89, 134);
-}
-.headerRow {
-  background-color: black;
-  margin-bottom: 15px;
-}
-.btnComment {
-  margin-top: 10px;
-}
-
-.commentCont {
-  border-style: dashed;
-}
-
-a:link {
-  color: rgb(200, 23, 23);
-}
-a:visited {
-  color: rgb(255, 155, 4);
 }
 
 a:hover {
-  color: rgb(87, 255, 20);
+  color: #5d738f;
 }
 
-.signup{
-  margin-left: 30px;
+button {
+  background-color: #22a387;
+  border: 0;
+  padding: 1%;
+  color: rgb(219, 23, 23);
+  font-weight: bold;
+  transition: background-color .1s;
+  cursor: pointer;
+  border-radius: 10px;
 }
 
-.login{
-	margin-left: 30px;
+button:hover {
+  background-color: #34eba5;
 }
 
-.form-group{
-	margin-top: 15px;
+.post-list {
+  margin: 0;
+  padding: 0;
+}
+
+textarea, input {
+  padding: .3%;
+  border-radius: 10px;
+  border: 2px solid rgb(114, 165, 142);
+}
+
+textarea:focus, input:focus {
+  outline: none;
+  border: 2px solid #3486eb;
+}
+
+textarea {
+  min-width: 40%;
+  min-height: 100px;
+}
+
+form > div {
+  margin-bottom: 2%;
+}
+
+form label {
+  display: block;
+}
+
+.wrapper {
+  width: 100%;
+  min-height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1%;
+}
+
+header h1 {
+  font-size: 1em;
+}
+
+main {
+  flex: 1;
+  padding: 2% 4%;
+}
+
+.btn-no-style {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: none;
+  color: #225ca3;
+  font-size: 100%;
+  font-weight: bold;
+  transition: color .1s;
+  margin-left: 16px;
+}
+
+.btn-no-style:hover {
+  background: none;
+  color: #3486eb;
+}
+
+.delete-post-btn {
+  background-color: #d41414;
+}
+
+.delete-post-btn:hover {
+  background-color: #ff643d;
+}
+
+.post {
+  margin-bottom: 2%;
+  line-height: 150%;
+}
+
+.post .title span {
+  font-style: italic;
+  font-size: 90%;
+  color: #7d7d7d;
+}
+
+.edit-link {
+  display: block;
+  margin: -1.5% 0 2% 0;
+}
+
+.upvote-btn {
+  background-color: #197d0f;
+  transition: background-color .1s;
+}
+
+.upvote-btn:hover {
+  background-color: #1f9c13;
+}
+
+.comment-form {
+  margin-bottom: 5%;
+}
+
+.comment {
+  padding: 1%;
+  margin-bottom: 1%;
+}
+
+.comment:nth-child(odd) {
+  background-color: #fff5eb;
+}
+
+.comment .meta {
+  font-size: 90%;
+  margin-bottom: .5%;
+  opacity: .6;
+}
+
+.new-post-form input {
+  width: 300px;
+}
+
+.edit-post-form {
+  margin-bottom: 5%;
+}
+
+footer {
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  padding: 1%;
+  font-size: 110%;
 }

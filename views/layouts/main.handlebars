@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GAM3STATION</title>
-    <link rel="stylesheet" href="/G3-station/stylesheets/style.css">
+    <title>G3-station</title>
+    <link rel="stylesheet" href="/public/stylesheets/style.css">
 </head>
 
 <body>
@@ -31,21 +31,10 @@
                 <a class="nav-link active" aria-current="page" href="/">Home</a>
               </li>
                 {{#if loggedIn}}
-                <li class="nav-item">
-                  <button class="no-button" id="logout">Logout</button>
-                </li>
-                   <li class="nav-item">
-                  <a class="nav-link" href="/dashboard">Dashboard</a>
-                </li>
-
+                <a href="/views/dashboard.handlebars">dashboard</a>
+                <button id="logout" class="btn-no-style logout">logout</button>
                 {{else}}
-                <li class="nav-item">
-                  <a class="nav-link" href="/signUp">Sign Up</a>
-                </li>
-
-                <li>
-                  <a class="nav-link" href="/login">Login</a>
-                </li>
+                <a href="/public/javascript/login.js">login</a>
                 {{/if}}
             </nav>
         </header>
@@ -63,7 +52,7 @@
     </div>
 
     {{#if loggedIn}}
-    <script src="/javascript/logout.js"></script>
+    <script src="/public/javascript/logout.js"></script>
     {{/if}}
 </body>
 

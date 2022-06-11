@@ -209,4 +209,8 @@
 // ];
 //  const seedGame = () => Console.bulkCreate(gameData);
 
+<<<<<<< HEAD
 //  module.exports = seedGame
+=======
+//  module.exports = seedGame;
+>>>>>>> a7c286a3ae14969e68e94fe7804eb8f55a8b42eb
