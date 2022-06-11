@@ -1,59 +1,48 @@
-<!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>G3-station</title>
-    <link rel="stylesheet" href="/public/stylesheets/style.css">
-</head>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
 
-<body>
-    <div class="flex-column justify-space-around">
+  <body>
+    <header>
+       {{#if loggedIn}}
+        <h1>
+          <a href="/dashboard">{{username}}'s-Dashboard</a>
+        </h1>
+      {{else}}
+        <h1>
+          <a href="/">G3-station</a>
+        </h1>
+      {{/if}}
 
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid navBack">
-          <a class="navbar-brand navTitle" href="/"></a>
-          <button
-            type="button"
-            class="navbar-toggler"
-            aria-label="Toggle navigation"
-            data-bs-target="#navbarSupportedContent"
-            data-bs-toggle="collapse"
-            aria-expanded="false"
-            aria-controls="navbarSupportedContent">
-            
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-4 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Home</a>
-              </li>
-                {{#if loggedIn}}
-                <a href="/views/dashboard.handlebars">dashboard</a>
-                <button id="logout" class="btn-no-style logout">logout</button>
-                {{else}}
-                <a href="/public/javascript/login.js">login</a>
-                {{/if}}
-            </nav>
-        </header>
-        <div class="site-row">
-            <div class="site-name">
-                <h1>G3-Playlist</h1>
-            </div>
-        </div>
-        <main>
-            {{{ body }}}
-        </main>
-         <footer>
+
+      <nav>
+        <ul class="inline-nav">
+          {{#if loggedIn}}
+            <li> <a href="/dashboard">Dashboard</a></li>
+            <li> <a href="/login" id="logout">Logout</a> </li>
+          {{else}}
+            <li><a href="/login"> Login </a></li>
+            <li><a href="/signup">Sign-up</a> </li>
+          {{/if}}
+        </ul>
+      </nav>
+    </header>
+    <main>
+      {{{body}}}
+    </main>
+    <footer>
       We love videogames!
     </footer>
-    </div>
+  
 
     {{#if loggedIn}}
-    <script src="/public/javascript/logout.js"></script>
+      <script src="/javascript/logout.js"></script>
     {{/if}}
-</body>
+  </body>
 
 </html>
